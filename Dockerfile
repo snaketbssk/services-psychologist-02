@@ -1,12 +1,16 @@
 # ── Stage 1: deps ────────────────────────────────────────────────────────────
-FROM node:22-alpine AS deps
+# node:22-slim uses Debian/glibc — required for Rolldown's native .node bindings.
+# Alpine uses musl libc; the rolldown-binding.linux-x64-musl.node optional package
+# is not installed by npm ci from a lockfile generated on a glibc machine.
+FROM node:22-slim AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
-RUN npm ci --frozen-lockfile
+# --include=optional ensures Rolldown's native glibc binding is installed
+RUN npm ci --frozen-lockfile --include=optional
 
 # ── Stage 2: build ───────────────────────────────────────────────────────────
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 WORKDIR /app
 
 COPY --from=deps /app/node_modules ./node_modules
@@ -16,8 +20,8 @@ COPY . .
 RUN npm run build
 
 # ── Stage 3: runner ──────────────────────────────────────────────────────────
-# No tsx, no TypeScript — just node + production deps + compiled output.
-FROM node:22-alpine AS runner
+# Slim Debian — matches the glibc ABI used at build time.
+FROM node:22-slim AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -33,8 +37,8 @@ COPY --from=builder /app/dist ./dist
 # Copy compiled server entry (server.ts → dist/server-entry/server.js)
 COPY --from=builder /app/dist/server-entry ./dist/server-entry
 
-RUN addgroup --system --gid 1001 nodejs \
- && adduser  --system --uid 1001 appuser
+RUN groupadd --system --gid 1001 nodejs \
+ && useradd  --system --uid 1001 --gid nodejs appuser
 USER appuser
 
 EXPOSE 3000
