@@ -5,13 +5,10 @@ import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Grid from '@mui/material/Grid'
 import SectionWrapper from './SectionWrapper'
-import type { Breakpoint } from '@mui/material/styles'
 import SectionHeader from './SectionHeader'
 import { useI18n } from '../../i18n/context'
 
-
-type BgColor = 'background.default' | 'background.paper'
-export default function BlogSection({ bgcolor = 'background.default', maxWidth = 'lg' }: { bgcolor?: BgColor; maxWidth?: Breakpoint | false }): JSX.Element {
+export default function BlogSection(): JSX.Element {
   const { t } = useI18n()
   const posts = [
     { id: 'p1', ...t.blog.posts.p1 }, { id: 'p2', ...t.blog.posts.p2 },
@@ -19,7 +16,7 @@ export default function BlogSection({ bgcolor = 'background.default', maxWidth =
   ]
 
   return (
-    <SectionWrapper bgcolor={bgcolor} maxWidth={maxWidth}>
+    <SectionWrapper bgcolor="background.paper">
       <SectionHeader eyebrow={t.blog.eyebrow} title={t.blog.title}
         subtitle={t.blog.subtitle} align="center" />
 

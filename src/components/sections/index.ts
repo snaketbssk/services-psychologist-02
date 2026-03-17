@@ -1,4 +1,3 @@
-export { default as SectionList }          from './SectionList'
 export { default as SectionWrapper }       from './SectionWrapper'
 export { default as SectionHeader }        from './SectionHeader'
 export { default as ServicesSection }      from './ServicesSection'

@@ -12,28 +12,26 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Build client bundle, SSR bundle, and compile server.ts → plain JS
 RUN npm run build
 
 # ── Stage 3: runner ──────────────────────────────────────────────────────────
+# No tsx, no TypeScript — just node + production deps + compiled output.
 FROM node:22-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV=production
 ENV PORT=3000
 
-# Copy the production build
-COPY --from=builder /app/dist        ./dist
-COPY --from=builder /app/package.json ./package.json
-
-# Install only production dependencies + tsx (needed to run server.ts)
+# Install only production dependencies (tsx, vite, tsc etc. are excluded)
 COPY package.json package-lock.json* ./
-RUN npm ci --frozen-lockfile --include=dev \
-    --omit=optional \
- && npm prune --production \
- && npm install tsx --save-dev
+RUN npm ci --frozen-lockfile --omit=dev
 
-# Copy server entry (tsx compiles it at runtime)
-COPY --from=builder /app/server.ts ./server.ts
+# Copy Vite bundles
+COPY --from=builder /app/dist ./dist
+
+# Copy compiled server entry (server.ts → dist/server-entry/server.js)
+COPY --from=builder /app/dist/server-entry ./dist/server-entry
 
 RUN addgroup --system --gid 1001 nodejs \
  && adduser  --system --uid 1001 appuser
@@ -41,4 +39,5 @@ USER appuser
 
 EXPOSE 3000
 
-CMD ["./node_modules/.bin/tsx", "server.ts"]
+# Plain node — no tsx, no compilation at runtime
+CMD ["node", "dist/server-entry/server.js"]

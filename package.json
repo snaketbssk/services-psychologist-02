@@ -4,11 +4,12 @@
   "type": "module",
   "scripts": {
     "dev": "tsx server.ts",
-    "build": "npm run build:client && npm run build:server",
+    "build": "npm run build:client && npm run build:server && npm run build:server-entry",
     "build:client": "vite build --outDir dist/client --ssrManifest",
     "build:server": "vite build --outDir dist/server --ssr src/entry-server.tsx",
     "preview": "cross-env NODE_ENV=production tsx server.ts",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build:server-entry": "tsc -p tsconfig.server.json"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",

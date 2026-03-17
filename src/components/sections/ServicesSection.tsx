@@ -7,13 +7,10 @@ import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SectionWrapper from './SectionWrapper'
-import type { Breakpoint } from '@mui/material/styles'
 import SectionHeader from './SectionHeader'
 import { useI18n } from '../../i18n/context'
 
-
-type BgColor = 'background.default' | 'background.paper'
-export default function ServicesSection({ bgcolor = 'background.default', maxWidth = 'lg' }: { bgcolor?: BgColor; maxWidth?: Breakpoint | false }): JSX.Element {
+export default function ServicesSection(): JSX.Element {
   const { t } = useI18n()
   const items = [
     t.services.items.individual, t.services.items.family,
@@ -22,7 +19,7 @@ export default function ServicesSection({ bgcolor = 'background.default', maxWid
   ]
 
   return (
-    <SectionWrapper bgcolor={bgcolor} maxWidth={maxWidth}>
+    <SectionWrapper bgcolor="background.default">
       <SectionHeader
         eyebrow={t.services.eyebrow}
         title={t.services.title}

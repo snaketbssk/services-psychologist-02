@@ -2,13 +2,10 @@ import { JSX } from 'react'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import SectionWrapper from './SectionWrapper'
-import type { Breakpoint } from '@mui/material/styles'
 import SectionHeader from './SectionHeader'
 import { useI18n } from '../../i18n/context'
 
-
-type BgColor = 'background.default' | 'background.paper'
-export default function ProcessSection({ bgcolor = 'background.default', maxWidth = 'lg' }: { bgcolor?: BgColor; maxWidth?: Breakpoint | false }): JSX.Element {
+export default function ProcessSection(): JSX.Element {
   const { t } = useI18n()
   const steps = [
     { number: 1, ...t.process.steps.step1 },
@@ -18,7 +15,7 @@ export default function ProcessSection({ bgcolor = 'background.default', maxWidt
   ]
 
   return (
-    <SectionWrapper bgcolor={bgcolor} maxWidth={maxWidth}>
+    <SectionWrapper bgcolor="background.paper">
       <SectionHeader eyebrow={t.process.eyebrow} title={t.process.title} subtitle={t.process.subtitle} align="center" />
 
       <Box sx={{ position: 'relative' }}>

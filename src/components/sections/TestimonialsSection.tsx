@@ -6,13 +6,10 @@ import CardContent from '@mui/material/CardContent'
 import StarIcon from '@mui/icons-material/Star'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SectionWrapper from './SectionWrapper'
-import type { Breakpoint } from '@mui/material/styles'
 import SectionHeader from './SectionHeader'
 import { useI18n } from '../../i18n/context'
 
-
-type BgColor = 'background.default' | 'background.paper'
-export default function TestimonialsSection({ bgcolor = 'background.default', maxWidth = 'lg' }: { bgcolor?: BgColor; maxWidth?: Breakpoint | false }): JSX.Element {
+export default function TestimonialsSection(): JSX.Element {
   const { t } = useI18n()
   const [active, setActive] = useState(0)
 
@@ -24,7 +21,7 @@ export default function TestimonialsSection({ bgcolor = 'background.default', ma
   const current = testimonials[active]
 
   return (
-    <SectionWrapper bgcolor={bgcolor} maxWidth={maxWidth}>
+    <SectionWrapper bgcolor="background.default">
       <SectionHeader eyebrow={t.testimonials.eyebrow} title={t.testimonials.title}
         subtitle={t.testimonials.subtitle} align="center" />
 

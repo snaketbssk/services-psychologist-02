@@ -152,20 +152,12 @@ export default function Home(): JSX.Element {
         </Box>
       </Box>
 
-      {/* ── Full-width sections — bgcolor alternates automatically via i % 2 ── */}
-      {[
-        ServicesSection,
-        ProcessSection,
-        TestimonialsSection,
-        BlogSection,
-        ConsultationSection,
-      ].map((Component, i) => (
-        <Component
-          key={i}
-          bgcolor={i % 2 === 0 ? 'background.default' : 'background.paper'}
-          maxWidth="lg"
-        />
-      ))}
+      {/* ── Full-width sections — no wrapper needed, each is 100vw ──────── */}
+      <ServicesSection />
+      <ProcessSection />
+      <TestimonialsSection />
+      <BlogSection />
+      <ConsultationSection />
     </Box>
   )
 }

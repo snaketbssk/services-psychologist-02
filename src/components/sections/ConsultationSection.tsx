@@ -13,13 +13,10 @@ import PhoneOutlinedIcon from '@mui/icons-material/PhoneOutlined'
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SectionWrapper from './SectionWrapper'
-import type { Breakpoint } from '@mui/material/styles'
 import { useI18n } from '../../i18n/context'
 import { tokens } from '../../theme'
 
-
-type BgColor = 'background.default' | 'background.paper'
-export default function ConsultationSection({ bgcolor = 'background.default', maxWidth = 'lg' }: { bgcolor?: BgColor; maxWidth?: Breakpoint | false }): JSX.Element {
+export default function ConsultationSection(): JSX.Element {
   const { t } = useI18n()
   const c = t.consultation
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '' })
@@ -36,7 +33,7 @@ export default function ConsultationSection({ bgcolor = 'background.default', ma
   ]
 
   return (
-    <SectionWrapper bgcolor={bgcolor} maxWidth={maxWidth}>
+    <SectionWrapper bgcolor="background.default">
       <Card sx={{ borderRadius: { xs: 2, sm: 4 }, overflow: 'hidden' }}>
         <CardContent sx={{ p: 0 }}>
           <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' } }}>
