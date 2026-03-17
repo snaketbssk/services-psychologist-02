@@ -1,0 +1,12 @@
+/* MUI CssBaseline handles the global reset.
+   This file is kept minimal — only app-level overrides that
+   must live outside the Emotion/MUI system go here. */
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Monospace code blocks inside pre tags */
+pre {
+  font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+  scrollbar-width: thin;
+}

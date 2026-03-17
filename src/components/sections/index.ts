@@ -1,0 +1,8 @@
+export { default as SectionList }          from './SectionList'
+export { default as SectionWrapper }       from './SectionWrapper'
+export { default as SectionHeader }        from './SectionHeader'
+export { default as ServicesSection }      from './ServicesSection'
+export { default as ProcessSection }       from './ProcessSection'
+export { default as TestimonialsSection }  from './TestimonialsSection'
+export { default as BlogSection }          from './BlogSection'
+export { default as ConsultationSection }  from './ConsultationSection'

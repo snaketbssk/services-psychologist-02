@@ -1,0 +1,135 @@
+{
+  "nav": { "home": "Accueil", "about": "À propos", "posts": "Articles" },
+  "home": {
+    "title": "Vite 8 + SSR",
+    "titleHighlight": "8",
+    "subtitle": "+ TypeScript + i18n",
+    "description": "Propulsé par Rolldown — le bundler Rust de Vite. Les pages sont rendues côté serveur, puis hydratées côté client. Entièrement typé et internationalisé.",
+    "counter": {
+      "title": "Compteur Interactif",
+      "description": "Ce HTML a été rendu côté serveur. Cliquez sur le bouton — il est maintenant hydraté et interactif.",
+      "button": "Compteur : {{count}}"
+    },
+    "features": {
+      "rolldown":   { "title": "Rolldown",    "description": "Vite 8 utilise Rolldown (Rust) — jusqu'à 10–30× plus rapide qu'avant." },
+      "ssr":        { "title": "SSR Prêt",    "description": "Rendu HTML côté serveur pour un affichage rapide et un bon SEO, puis hydratation." },
+      "typescript": { "title": "TypeScript",  "description": "Entièrement typé — serveur, client et types partagés vérifiés par tsc." },
+      "i18n":       { "title": "i18n",        "description": "Traductions JSON chargées côté serveur et transmises au client — sans requête supplémentaire." }
+    }
+  },
+  "about": {
+    "title": "À Propos du Projet",
+    "lead": "Un starter SSR minimal et entièrement typé utilisant Vite 8, React 19, TypeScript et i18n.",
+    "structure": { "title": "Structure du Projet" },
+    "flow": { "title": "Flux SSR" },
+    "i18n": {
+      "title": "Comment fonctionne l'i18n",
+      "step1": "Le serveur détecte la langue depuis l'en-tête Accept-Language (ou un cookie)",
+      "step2": "Le fichier JSON correspondant est chargé et passé à renderToString()",
+      "step3": "La locale et les traductions sont sérialisées dans une balise <script> dans le HTML",
+      "step4": "Le client lit depuis cette balise — aucune requête supplémentaire nécessaire",
+      "step5": "Changer de langue met à jour le contexte et re-rend instantanément"
+    }
+  },
+  "posts": {
+    "title": "Articles",
+    "lead": "Liste d'articles rendue côté serveur. Recherchez et filtrez — activé après l'hydratation.",
+    "searchPlaceholder": "Rechercher des articles…",
+    "sort": { "label": "Trier :", "newest": "Plus récent", "az": "A–Z" },
+    "all": "Tous",
+    "readMore": "Lire la suite →",
+    "empty": "Aucun article ne correspond à votre recherche.",
+    "minRead": "min de lecture"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page Introuvable",
+    "description": "La page que vous recherchez n'existe pas.",
+    "back": "← Retour à l'Accueil"
+  },
+  "footer": "Construit avec Vite 8 · React 19 · TypeScript · SSR · i18n",
+  "services": {
+    "eyebrow": "Ce Que Nous Faisons",
+    "title": "Services de Conseil et Thérapie",
+    "subtitle": "Nous proposons une large gamme de services pour répondre à vos besoins personnels.",
+    "cta": "Explorer Nos Services",
+    "readMore": "Lire Plus",
+    "items": {
+      "individual":  { "title": "Conseil Individuel",            "description": "Soutien personnel pour surmonter le stress, l'anxiété et retrouver confiance au quotidien." },
+      "family":      { "title": "Thérapie Familiale",            "description": "Améliorez les relations familiales, résolvez les conflits et créez un environnement de vie sain." },
+      "couples":     { "title": "Thérapie de Couple",            "description": "Renforcez la compréhension entre partenaires et aidez à consolider la relation." },
+      "group":       { "title": "Thérapie de Groupe",            "description": "Partagez vos expériences dans un cadre de groupe guidé et sécurisé avec d'autres personnes." },
+      "adolescent":  { "title": "Thérapie Enfants et Ados",      "description": "Soutien spécialisé pour les enfants et adolescents face aux défis émotionnels." },
+      "trauma":      { "title": "Conseil en Traumatologie",      "description": "Thérapie ciblée pour vous aider à guérir des traumatismes passés et retrouver la paix intérieure." }
+    }
+  },
+  "process": {
+    "eyebrow": "Comment Nous Travaillons",
+    "title": "Processus de Conseil et Thérapie",
+    "subtitle": "Vous accompagnant de la consultation initiale jusqu'à un chemin réussi vers le bien-être mental.",
+    "steps": {
+      "step1": { "title": "Consultation Initiale",  "description": "Contactez-nous pour planifier votre consultation initiale gratuite. Nous discutons de vos besoins et répondons à vos questions." },
+      "step2": { "title": "Plan Personnalisé",      "description": "Ensemble, nous créons un plan thérapeutique personnalisé adapté à vos objectifs et circonstances." },
+      "step3": { "title": "Séances de Thérapie",    "description": "Commencez des séances régulières dans un environnement sûr, en progressant vers un changement durable." },
+      "step4": { "title": "Soutien Continu",        "description": "Nous suivons vos progrès et ajustons l'approche si nécessaire pour vous aider à maintenir les changements positifs." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Témoignages Clients",
+    "title": "Ce Que Disent Nos Clients",
+    "subtitle": "Découvrez des témoignages de guérison et de changement positif.",
+    "readMore": "Lire Plus de Témoignages",
+    "stats": {
+      "experience": { "value": "20 Ans",  "label": "Années d'expérience" },
+      "customers":  { "value": "2k",      "label": "Clients satisfaits" },
+      "projects":   { "value": "46",      "label": "Projets réalisés" },
+      "awards":     { "value": "15",      "label": "Prix obtenus" }
+    },
+    "items": {
+      "t1": { "author": "Jane Carter", "role": "PDG, TherapyFirst",          "quote": "Nous apprécions sincèrement le soutien et les conseils exceptionnels fournis par votre équipe. Merci à Susan et Vaibhav pour leur dévouement." },
+      "t2": { "author": "James R.",    "role": "Client en Thérapie de Couple","quote": "Après quelques séances seulement, j'ai remarqué un changement significatif. L'approche était réfléchie, sans jugement et profondément efficace." },
+      "t3": { "author": "Elena W.",    "role": "Client en Conseil Individuel", "quote": "J'avais essayé d'autres thérapeutes mais je ne me sentais jamais vraiment écoutée. Ici l'expérience était complètement différente." }
+    }
+  },
+  "blog": {
+    "eyebrow": "Sujets Favoris",
+    "title": "Blog et Ressources Healingy",
+    "subtitle": "Votre source de référence pour les connaissances, outils et conseils en santé mentale.",
+    "posts": {
+      "p1": { "day": "12", "month": "Sep", "category": "Thérapie",  "title": "La Pleine Conscience Pour Une Meilleure Santé Mentale" },
+      "p2": { "day": "14", "month": "Sep", "category": "Bien-être", "title": "L'Auto-soin Pour le Bien-être Émotionnel" },
+      "p3": { "day": "16", "month": "Sep", "category": "Thérapie",  "title": "La Thérapie Cognitive Pour le Stress" },
+      "p4": { "day": "18", "month": "Sep", "category": "Bien-être", "title": "Comment la Thérapie Aide avec le Trauma" }
+    }
+  },
+  "consultation": {
+    "eyebrow": "Réserver une Consultation",
+    "title": "Consultation Gratuite – Commencez Votre Parcours de Guérison",
+    "description": "Connectez-vous avec un spécialiste dédié aujourd'hui et faites le premier pas vers une vie plus saine.",
+    "formTitle": "Obtenez une Consultation Gratuite",
+    "fields": {
+      "name":    "Votre Nom *",
+      "email":   "Votre Email *",
+      "phone":   "Numéro de Téléphone",
+      "service": "Choisir les Services",
+      "message": "Votre message"
+    },
+    "submit": "Envoyer",
+    "successTitle": "Merci !",
+    "successMessage": "Nous vous contacterons dans les 24 heures.",
+    "openMap": "Ouvrir la carte",
+    "contact": {
+      "email":   "bonjour@centresoin.fr",
+      "phone":   "1-333-345-6868",
+      "address": "101 E 129th St, East Chicago, IN 46312, États-Unis"
+    },
+    "services": [
+      "Conseil Individuel",
+      "Thérapie de Couple",
+      "Thérapie Familiale",
+      "Thérapie de Groupe",
+      "Thérapie Enfants et Ados",
+      "Conseil en Traumatologie"
+    ]
+  }
+}

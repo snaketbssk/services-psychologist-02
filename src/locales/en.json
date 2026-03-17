@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "posts": "Posts"
+  },
+  "home": {
+    "title": "Vite 8 + SSR",
+    "titleHighlight": "8",
+    "subtitle": "+ TypeScript + i18n",
+    "description": "Powered by Rolldown — Vite's Rust-based bundler. Pages render on the server, then hydrate seamlessly on the client. Fully typed and internationalized.",
+    "counter": {
+      "title": "Interactive Counter",
+      "description": "This HTML was rendered on the server. Click the button — it's now hydrated and interactive.",
+      "button": "Count: {{count}}"
+    },
+    "features": {
+      "rolldown":   { "title": "Rolldown",    "description": "Vite 8 uses Rolldown (Rust) as its bundler — up to 10–30× faster builds than before." },
+      "ssr":        { "title": "SSR Ready",   "description": "Server-renders HTML for fast first paint and great SEO, then hydrates for interactivity." },
+      "typescript": { "title": "TypeScript",  "description": "Fully typed — server, client, components and shared types all checked by tsc." },
+      "i18n":       { "title": "i18n",        "description": "JSON-based translations loaded server-side and passed to the client — no extra requests." }
+    }
+  },
+  "about": {
+    "title": "About This Project",
+    "lead": "A minimal, fully-typed SSR starter using Vite 8, React 19, React Router 7, TypeScript, and i18n.",
+    "structure": { "title": "Project Structure" },
+    "flow": { "title": "SSR Flow" },
+    "i18n": {
+      "title": "How i18n Works",
+      "step1": "The server detects the locale from the Accept-Language header (or cookie)",
+      "step2": "The matching JSON file is loaded and passed into renderToString()",
+      "step3": "The locale and translations are serialized into a <script> tag in the HTML",
+      "step4": "The client reads from that script tag — no extra fetch needed",
+      "step5": "Switching language updates the context and re-renders instantly"
+    }
+  },
+  "posts": {
+    "title": "Posts",
+    "lead": "Server-rendered post list. Search and filter — all activated after hydration.",
+    "searchPlaceholder": "Search posts…",
+    "sort": { "label": "Sort:", "newest": "Newest", "az": "A–Z" },
+    "all": "All",
+    "readMore": "Read more →",
+    "empty": "No posts match your search.",
+    "minRead": "min read"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist.",
+    "back": "← Back to Home"
+  },
+  "footer": "Built with Vite 8 · React 19 · TypeScript · SSR · i18n",
+  "services": {
+    "eyebrow": "What We Do",
+    "title": "Counseling & Therapy Services",
+    "subtitle": "We offer a wide range of services to meet your personal needs.",
+    "cta": "Explore Our Services",
+    "readMore": "Read More",
+    "items": {
+      "individual":  { "title": "Individual Counseling",        "description": "Personal support to help you overcome stress, anxiety, and regain confidence in your everyday life." },
+      "family":      { "title": "Family Therapy",               "description": "Improve family relationships, resolve conflicts, and build a healthy, supportive living environment." },
+      "couples":     { "title": "Couples Therapy",              "description": "Enhance understanding between partners, helping to strengthen and renew the relationship." },
+      "group":       { "title": "Group Therapy",                "description": "Share experiences and support in a guided, safe group setting with others facing similar challenges." },
+      "adolescent":  { "title": "Child & Adolescent Therapy",   "description": "Specialised support for children and teens navigating emotional challenges and building resilience." },
+      "trauma":      { "title": "Trauma Counseling",            "description": "Focused therapy to help you heal from past trauma and regain a sense of control and peace." }
+    }
+  },
+  "process": {
+    "eyebrow": "How We Work",
+    "title": "Counseling & Therapy Process",
+    "subtitle": "Supporting you from initial consultation to a successful path to mental well-being.",
+    "steps": {
+      "step1": { "title": "Contact Consultation", "description": "Reach out to schedule your free initial consultation. We discuss your needs and answer any questions you may have." },
+      "step2": { "title": "Customised Plan",      "description": "Together we create a personalised therapy plan tailored to your goals and unique circumstances." },
+      "step3": { "title": "Therapy Sessions",     "description": "Begin regular sessions in a safe, supportive environment, working steadily toward meaningful change." },
+      "step4": { "title": "Ongoing Support",      "description": "We monitor your progress and adjust the approach as needed to help you sustain the positive changes you have made." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Client Testimonials",
+    "title": "What Our Clients Are Saying",
+    "subtitle": "Hear firsthand accounts of healing and positive change.",
+    "readMore": "Read More Stories",
+    "stats": {
+      "experience": { "value": "20 Years", "label": "Years experience" },
+      "customers":  { "value": "2k",       "label": "Happy customers" },
+      "projects":   { "value": "46",       "label": "Projects completed" },
+      "awards":     { "value": "15",       "label": "Awards achievement" }
+    },
+    "items": {
+      "t1": { "author": "Jane Carter", "role": "CEO, TherapyFirst",          "quote": "We sincerely appreciate the outstanding support and guidance your team provided. Special thanks to Susan and Vaibhav for their dedication." },
+      "t2": { "author": "James R.",    "role": "Couples Therapy Client",     "quote": "After just a few sessions I noticed a significant shift. The approach was thoughtful, non-judgmental, and deeply effective." },
+      "t3": { "author": "Elena W.",    "role": "Individual Counseling Client","quote": "I had tried other therapists before but never felt truly heard. Here the experience was completely different — warm, professional, and transformative." }
+    }
+  },
+  "blog": {
+    "eyebrow": "Favourite Topics",
+    "title": "Healingy Blog & Resources",
+    "subtitle": "Your go-to source for mental health insights, tools, and advice.",
+    "posts": {
+      "p1": { "day": "12", "month": "Sep", "category": "Therapy",  "title": "Mindfulness For Better Mental Health" },
+      "p2": { "day": "14", "month": "Sep", "category": "Wellness", "title": "Self-Care for Emotional Well-being" },
+      "p3": { "day": "16", "month": "Sep", "category": "Therapy",  "title": "Cognitive Behavioral Therapy for Stress" },
+      "p4": { "day": "18", "month": "Sep", "category": "Wellness", "title": "How Therapy Helps with Trauma" }
+    }
+  },
+  "consultation": {
+    "eyebrow": "Book a Consultation",
+    "title": "Free Consultation – Begin Your Healing Journey",
+    "description": "Connect with a dedicated specialist today and take the first step towards a healthier, more fulfilling life.",
+    "formTitle": "Get A Free Consultation",
+    "fields": {
+      "name":    "Your Name *",
+      "email":   "Your Email *",
+      "phone":   "Phone Number",
+      "service": "Choose Services",
+      "message": "Your message"
+    },
+    "submit": "Submit",
+    "successTitle": "Thank you!",
+    "successMessage": "We'll be in touch within 24 hours.",
+    "openMap": "Open map",
+    "contact": {
+      "email":   "hello@healingcenter.com",
+      "phone":   "1-333-345-6868",
+      "address": "101 E 129th St, East Chicago, IN 46312, US"
+    },
+    "services": [
+      "Individual Counseling",
+      "Couples Therapy",
+      "Family Therapy",
+      "Group Therapy",
+      "Child & Adolescent Therapy",
+      "Trauma Counseling"
+    ]
+  }
+}
