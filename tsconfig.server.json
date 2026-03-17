@@ -8,5 +8,6 @@
     "jsx":              "react-jsx",
     "paths":            {}
   },
-  "include": ["server.ts"]
+  "include": ["server.ts"],
+  "exclude": ["node_modules", "dist", "src"]
 }
