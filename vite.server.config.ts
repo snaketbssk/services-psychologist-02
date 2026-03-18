@@ -7,8 +7,7 @@ export default defineConfig({
   build: {
     ssr: "src/entry-server.tsx",
     outDir: "dist/server-entry",
-    target: "node20", // safer with Node 22
-
+    target: "node18",
     rollupOptions: {
       output: {
         entryFileNames: "entry-server.js",
@@ -16,12 +15,13 @@ export default defineConfig({
     },
   },
 
-  // 🔥 THIS FIXES YOUR ERROR
   ssr: {
+    // 🔥 Bundle all MUI + icons for SSR
     noExternal: [
       "@mui/material",
       "@mui/system",
       "@mui/utils",
+      "@mui/icons-material",
       "@emotion/react",
       "@emotion/styled",
     ],
