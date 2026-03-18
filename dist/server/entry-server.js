@@ -1,9 +1,9 @@
-import { renderToString } from "react-dom/server";
-import { Link, NavLink, Outlet, Route, Routes, StaticRouter } from "react-router";
-import { ThemeProvider, createTheme } from "@mui/material/styles/index.js";
-import CssBaseline from "@mui/material/CssBaseline/index.js";
 import { CacheProvider } from "@emotion/react";
 import createEmotionServer from "@emotion/server/create-instance";
+import CssBaseline from "@mui/material/CssBaseline/index.js";
+import { ThemeProvider, createTheme } from "@mui/material/styles/index.js";
+import { renderToString } from "react-dom/server";
+import { Link, NavLink, Outlet, Route, Routes, StaticRouter } from "react-router";
 import { createContext, useCallback, useContext, useMemo, useState } from "react";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 import AppBar from "@mui/material/AppBar/index.js";
@@ -3098,6 +3098,14 @@ function getTranslations(locale) {
 	return ALL_TRANSLATIONS[locale] ?? ALL_TRANSLATIONS["en"];
 }
 //#endregion
+//#region src/mui/createEmotionCache.ts
+function createEmotionCache() {
+	return createCache({
+		key: "css",
+		prepend: true
+	});
+}
+//#endregion
 //#region src/server/fetchHomeData.ts
 /** Simulates a ~80ms server-side data fetch */
 async function fetchHomeData() {
@@ -3156,14 +3164,6 @@ async function fetchHomeData() {
 	};
 }
 //#endregion
-//#region src/mui/createEmotionCache.ts
-function createEmotionCache() {
-	return createCache({
-		key: "css",
-		prepend: true
-	});
-}
-//#endregion
 //#region src/entry-server.tsx
 async function render(url, locale) {
 	const translations = getTranslations(locale);
@@ -3187,15 +3187,17 @@ async function render(url, locale) {
 	}));
 	return {
 		html,
-		head: `${constructStyleTagsFromChunks(extractCriticalToChunks(html))}
-    <script>
-      window.__I18N__ = ${JSON.stringify({
+		head: `
+${constructStyleTagsFromChunks(extractCriticalToChunks(html))}
+<script>
+window.__I18N__ = ${JSON.stringify({
 			locale,
 			translations,
 			allTranslations: ALL_TRANSLATIONS
 		})};
-      window.__SERVER_DATA__ = ${JSON.stringify(serverData)};
-    <\/script>`
+window.__SERVER_DATA__ = ${JSON.stringify(serverData)};
+<\/script>
+`
 	};
 }
 //#endregion
