@@ -8,6 +8,10 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
+      "@mui/styled-engine": path.resolve(
+        __dirname,
+        "node_modules/@emotion/styled",
+      ),
     },
   },
 
@@ -16,10 +20,8 @@ export default defineConfig({
   },
 
   build: {
-    outDir: "dist/client", // 🔥 FIX: correct output folder
-    emptyOutDir: true, // 🔥 clean previous builds
-
-    // optional but recommended
+    outDir: "dist/client", // must match server.ts
+    emptyOutDir: true,
     rollupOptions: {
       input: path.resolve(__dirname, "index.html"),
     },
