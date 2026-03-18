@@ -5,13 +5,13 @@ export default defineConfig({
   plugins: [react()],
 
   build: {
-    ssr: "src/entry-server.tsx", // 🔥 entry point for SSR
-    outDir: "dist/server-entry", // 🔥 must match your server.ts
+    ssr: "src/entry-server.tsx",
+    outDir: "dist/server-entry",
     target: "node18",
 
     rollupOptions: {
       output: {
-        entryFileNames: "entry-server.js", // 🔥 guarantees filename
+        entryFileNames: "entry-server.js", // 🔥 important
       },
     },
   },
